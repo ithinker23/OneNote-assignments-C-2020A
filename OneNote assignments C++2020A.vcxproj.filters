@@ -13,16 +13,13 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\What is c++%3f">
-      <UniqueIdentifier>{cb07b2f6-7b2e-41fd-bd0a-5e6a3bd41208}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Review 2 .cpp">
-      <Filter>Source Files\What is c++%3f</Filter>
-    </ClCompile>
     <ClCompile Include="Review 1.cpp">
-      <Filter>Source Files\What is c++%3f</Filter>
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Review 2 .cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
