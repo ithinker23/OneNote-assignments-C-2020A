@@ -24,6 +24,7 @@
     <ProjectGuid>{b75ab729-328f-4963-b62a-0180d82bf4b6}</ProjectGuid>
     <RootNamespace>OneNoteassignmentsC2020A</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>C++ Onenote</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -139,8 +140,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Review 1.cpp" />
-    <ClCompile Include="Review 2 .cpp" />
+    <ClCompile Include="C++ calculations.cpp" />
+    <ClCompile Include="Circle Calc %28review 4%29.cpp" />
+    <ClCompile Include="classCount.cpp" />
+    <ClCompile Include="km per L.cpp" />
+    <ClCompile Include="Rectangle Calc.cpp" />
+    <ClCompile Include="review 5.cpp" />
+    <ClCompile Include="review 6.cpp" />
+    <ClCompile Include="Review 7.cpp" />
+    <ClCompile Include="AvgLongJump.cpp" />
+    <ClCompile Include="avgclassize.cpp" />
+    <ClCompile Include="What is C++ .cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

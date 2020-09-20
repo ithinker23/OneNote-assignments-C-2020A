@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OneNote assignments C++2020A", "OneNote assignments C++2020A.vcxproj", "{B75AB729-328F-4963-B62A-0180D82BF4B6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "What is C++", "OneNote assignments C++2020A.vcxproj", "{B75AB729-328F-4963-B62A-0180D82BF4B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
