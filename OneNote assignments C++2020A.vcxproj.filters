@@ -19,6 +19,9 @@
     <Filter Include="Source Files\Inputs and Outputs">
       <UniqueIdentifier>{30782a60-0fb8-4631-bfea-af4133cc257a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Variables">
+      <UniqueIdentifier>{051b2825-1444-4012-9f24-a11d033b3c75}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="What is C++ .cpp">
@@ -53,6 +56,42 @@
     </ClCompile>
     <ClCompile Include="classCount.cpp">
       <Filter>Source Files\Inputs and Outputs</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangle with input.cpp">
+      <Filter>Source Files\Variables</Filter>
+    </ClCompile>
+    <ClCompile Include="contExample.cpp">
+      <Filter>Source Files\Variables</Filter>
+    </ClCompile>
+    <ClCompile Include="askforname.cpp">
+      <Filter>Source Files\Variables</Filter>
+    </ClCompile>
+    <ClCompile Include="Review 9.cpp">
+      <Filter>Source Files\Variables</Filter>
+    </ClCompile>
+    <ClCompile Include="Review 10.cpp">
+      <Filter>Source Files\Variables</Filter>
+    </ClCompile>
+    <ClCompile Include="Review 11.cpp">
+      <Filter>Source Files\Variables</Filter>
+    </ClCompile>
+    <ClCompile Include="Exercise 1.cpp">
+      <Filter>Source Files\Variables</Filter>
+    </ClCompile>
+    <ClCompile Include="Excercise 2.cpp">
+      <Filter>Source Files\Variables</Filter>
+    </ClCompile>
+    <ClCompile Include="Excercise 3.cpp">
+      <Filter>Source Files\Variables</Filter>
+    </ClCompile>
+    <ClCompile Include="Excercise 4.cpp">
+      <Filter>Source Files\Variables</Filter>
+    </ClCompile>
+    <ClCompile Include="Excercise 5.cpp">
+      <Filter>Source Files\Variables</Filter>
+    </ClCompile>
+    <ClCompile Include="Excercise 5b.cpp">
+      <Filter>Source Files\Variables</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
