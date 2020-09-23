@@ -22,6 +22,9 @@
     <Filter Include="Source Files\Variables">
       <UniqueIdentifier>{051b2825-1444-4012-9f24-a11d033b3c75}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Controlling Program Flow">
+      <UniqueIdentifier>{dbd28d57-f010-45f4-9af3-08723506cde3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="What is C++ .cpp">
@@ -92,6 +95,42 @@
     </ClCompile>
     <ClCompile Include="Excercise 5b.cpp">
       <Filter>Source Files\Variables</Filter>
+    </ClCompile>
+    <ClCompile Include="Review 1 and 3.cpp">
+      <Filter>Source Files\Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="discriminant.cpp">
+      <Filter>Source Files\Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="Golf.cpp">
+      <Filter>Source Files\Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="PackageManager.cpp">
+      <Filter>Source Files\Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="y or Y.cpp">
+      <Filter>Source Files\Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="password.cpp">
+      <Filter>Source Files\Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleCalc.cpp">
+      <Filter>Source Files\Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="checkInteger.cpp">
+      <Filter>Source Files\Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="Percent.cpp">
+      <Filter>Source Files\Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="counter.cpp">
+      <Filter>Source Files\Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="Review 19.cpp">
+      <Filter>Source Files\Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="Source.cpp">
+      <Filter>Source Files\Controlling Program Flow</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

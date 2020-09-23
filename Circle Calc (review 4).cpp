@@ -85,10 +85,11 @@ int main() {
 
 		cout << "Not enough information given!";
 
+		return 0;
 	}
 
 
 
-	return 0;
+	
 
 }*/
