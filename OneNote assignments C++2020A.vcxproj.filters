@@ -25,6 +25,12 @@
     <Filter Include="Source Files\Controlling Program Flow">
       <UniqueIdentifier>{dbd28d57-f010-45f4-9af3-08723506cde3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Project For Controlling Program Flow">
+      <UniqueIdentifier>{238ab395-9f6a-459b-8342-6d97dac00860}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Functions">
+      <UniqueIdentifier>{89485269-34df-4aaf-81de-cb4b6f5a9c98}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="What is C++ .cpp">
@@ -129,7 +135,43 @@
     <ClCompile Include="Review 19.cpp">
       <Filter>Source Files\Controlling Program Flow</Filter>
     </ClCompile>
-    <ClCompile Include="Source.cpp">
+    <ClCompile Include="DiceRoll.cpp">
+      <Filter>Source Files\Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="GuessingGame.cpp">
+      <Filter>Source Files\Project For Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment1.cpp">
+      <Filter>Source Files\Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment2.cpp">
+      <Filter>Source Files\Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment4.cpp">
+      <Filter>Source Files\Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment3.cpp">
+      <Filter>Source Files\Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment5.cpp">
+      <Filter>Source Files\Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment5b.cpp">
+      <Filter>Source Files\Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment6.cpp">
+      <Filter>Source Files\Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment7.cpp">
+      <Filter>Source Files\Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment8.cpp">
+      <Filter>Source Files\Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment9.cpp">
+      <Filter>Source Files\Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment10.cpp">
       <Filter>Source Files\Controlling Program Flow</Filter>
     </ClCompile>
   </ItemGroup>

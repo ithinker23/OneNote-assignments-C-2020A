@@ -140,6 +140,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Assignment1.cpp" />
+    <ClCompile Include="Assignment10.cpp" />
+    <ClCompile Include="Assignment2.cpp" />
+    <ClCompile Include="Assignment3.cpp" />
+    <ClCompile Include="Assignment4.cpp" />
+    <ClCompile Include="Assignment5b.cpp" />
+    <ClCompile Include="Assignment6.cpp" />
+    <ClCompile Include="Assignment7.cpp" />
+    <ClCompile Include="Assignment8.cpp" />
+    <ClCompile Include="Assignment9.cpp" />
     <ClCompile Include="C++ calculations.cpp" />
     <ClCompile Include="checkInteger.cpp" />
     <ClCompile Include="Circle Calc %28review 4%29.cpp" />
@@ -172,7 +182,9 @@
     <ClCompile Include="Review 10.cpp" />
     <ClCompile Include="Review 11.cpp" />
     <ClCompile Include="Review 1 and 3.cpp" />
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="DiceRoll.cpp" />
+    <ClCompile Include="GuessingGame.cpp" />
+    <ClCompile Include="Assignment5.cpp" />
     <ClCompile Include="What is C++ .cpp" />
     <ClCompile Include="y or Y.cpp" />
   </ItemGroup>
