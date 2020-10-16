@@ -36,16 +36,7 @@
     <ClCompile Include="What is C++ .cpp">
       <Filter>Source Files\What is C++%3f</Filter>
     </ClCompile>
-    <ClCompile Include="review 5.cpp">
-      <Filter>Source Files\Inputs and Outputs</Filter>
-    </ClCompile>
-    <ClCompile Include="review 6.cpp">
-      <Filter>Source Files\Inputs and Outputs</Filter>
-    </ClCompile>
     <ClCompile Include="Circle Calc %28review 4%29.cpp">
-      <Filter>Source Files\Inputs and Outputs</Filter>
-    </ClCompile>
-    <ClCompile Include="Review 7.cpp">
       <Filter>Source Files\Inputs and Outputs</Filter>
     </ClCompile>
     <ClCompile Include="Rectangle Calc.cpp">
@@ -75,36 +66,6 @@
     <ClCompile Include="askforname.cpp">
       <Filter>Source Files\Variables</Filter>
     </ClCompile>
-    <ClCompile Include="Review 9.cpp">
-      <Filter>Source Files\Variables</Filter>
-    </ClCompile>
-    <ClCompile Include="Review 10.cpp">
-      <Filter>Source Files\Variables</Filter>
-    </ClCompile>
-    <ClCompile Include="Review 11.cpp">
-      <Filter>Source Files\Variables</Filter>
-    </ClCompile>
-    <ClCompile Include="Exercise 1.cpp">
-      <Filter>Source Files\Variables</Filter>
-    </ClCompile>
-    <ClCompile Include="Excercise 2.cpp">
-      <Filter>Source Files\Variables</Filter>
-    </ClCompile>
-    <ClCompile Include="Excercise 3.cpp">
-      <Filter>Source Files\Variables</Filter>
-    </ClCompile>
-    <ClCompile Include="Excercise 4.cpp">
-      <Filter>Source Files\Variables</Filter>
-    </ClCompile>
-    <ClCompile Include="Excercise 5.cpp">
-      <Filter>Source Files\Variables</Filter>
-    </ClCompile>
-    <ClCompile Include="Excercise 5b.cpp">
-      <Filter>Source Files\Variables</Filter>
-    </ClCompile>
-    <ClCompile Include="Review 1 and 3.cpp">
-      <Filter>Source Files\Controlling Program Flow</Filter>
-    </ClCompile>
     <ClCompile Include="discriminant.cpp">
       <Filter>Source Files\Controlling Program Flow</Filter>
     </ClCompile>
@@ -132,47 +93,113 @@
     <ClCompile Include="counter.cpp">
       <Filter>Source Files\Controlling Program Flow</Filter>
     </ClCompile>
-    <ClCompile Include="Review 19.cpp">
-      <Filter>Source Files\Controlling Program Flow</Filter>
-    </ClCompile>
     <ClCompile Include="DiceRoll.cpp">
       <Filter>Source Files\Controlling Program Flow</Filter>
     </ClCompile>
     <ClCompile Include="GuessingGame.cpp">
       <Filter>Source Files\Project For Controlling Program Flow</Filter>
     </ClCompile>
-    <ClCompile Include="Assignment1.cpp">
+    <ClCompile Include="Review Functions 5.cpp">
+      <Filter>Source Files\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Review Functions 2.cpp">
+      <Filter>Source Files\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Review Functions 1.cpp">
+      <Filter>Source Files\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Review Functions 4.cpp">
+      <Filter>Source Files\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Review Functions 3.cpp">
+      <Filter>Source Files\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Review IO 5.cpp">
+      <Filter>Source Files\Inputs and Outputs</Filter>
+    </ClCompile>
+    <ClCompile Include="Review IO 6.cpp">
+      <Filter>Source Files\Inputs and Outputs</Filter>
+    </ClCompile>
+    <ClCompile Include="Review IO 7.cpp">
+      <Filter>Source Files\Inputs and Outputs</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment Flow 1.cpp">
       <Filter>Source Files\Controlling Program Flow</Filter>
     </ClCompile>
-    <ClCompile Include="Assignment2.cpp">
+    <ClCompile Include="Assignment Flow 2.cpp">
       <Filter>Source Files\Controlling Program Flow</Filter>
     </ClCompile>
-    <ClCompile Include="Assignment4.cpp">
+    <ClCompile Include="Assignment Flow 3.cpp">
       <Filter>Source Files\Controlling Program Flow</Filter>
     </ClCompile>
-    <ClCompile Include="Assignment3.cpp">
+    <ClCompile Include="Assignment Flow 4.cpp">
       <Filter>Source Files\Controlling Program Flow</Filter>
     </ClCompile>
-    <ClCompile Include="Assignment5.cpp">
+    <ClCompile Include="Assignment Flow 5.cpp">
       <Filter>Source Files\Controlling Program Flow</Filter>
     </ClCompile>
-    <ClCompile Include="Assignment5b.cpp">
+    <ClCompile Include="Assignment Flow 5b.cpp">
       <Filter>Source Files\Controlling Program Flow</Filter>
     </ClCompile>
-    <ClCompile Include="Assignment6.cpp">
+    <ClCompile Include="Assignment Flow 6.cpp">
       <Filter>Source Files\Controlling Program Flow</Filter>
     </ClCompile>
-    <ClCompile Include="Assignment7.cpp">
+    <ClCompile Include="Assignment Flow 7.cpp">
       <Filter>Source Files\Controlling Program Flow</Filter>
     </ClCompile>
-    <ClCompile Include="Assignment8.cpp">
+    <ClCompile Include="Assignment Flow 8.cpp">
       <Filter>Source Files\Controlling Program Flow</Filter>
     </ClCompile>
-    <ClCompile Include="Assignment9.cpp">
+    <ClCompile Include="Assignment Flow 9.cpp">
       <Filter>Source Files\Controlling Program Flow</Filter>
     </ClCompile>
-    <ClCompile Include="Assignment10.cpp">
+    <ClCompile Include="Assignment Flow 10.cpp">
       <Filter>Source Files\Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="Review Flow 19.cpp">
+      <Filter>Source Files\Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="Excercise Var 2.cpp">
+      <Filter>Source Files\Variables</Filter>
+    </ClCompile>
+    <ClCompile Include="Excercise Var 3.cpp">
+      <Filter>Source Files\Variables</Filter>
+    </ClCompile>
+    <ClCompile Include="Excercise Var 4.cpp">
+      <Filter>Source Files\Variables</Filter>
+    </ClCompile>
+    <ClCompile Include="Excercise Var 5.cpp">
+      <Filter>Source Files\Variables</Filter>
+    </ClCompile>
+    <ClCompile Include="Excercise Var 5b.cpp">
+      <Filter>Source Files\Variables</Filter>
+    </ClCompile>
+    <ClCompile Include="Excercise Var 1.cpp">
+      <Filter>Source Files\Variables</Filter>
+    </ClCompile>
+    <ClCompile Include="Review Var 9.cpp">
+      <Filter>Source Files\Variables</Filter>
+    </ClCompile>
+    <ClCompile Include="Review Var 10.cpp">
+      <Filter>Source Files\Variables</Filter>
+    </ClCompile>
+    <ClCompile Include="Review Var 11.cpp">
+      <Filter>Source Files\Variables</Filter>
+    </ClCompile>
+    <ClCompile Include="Review Flow 1 and 3.cpp">
+      <Filter>Source Files\Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="Review Functions 7.cpp">
+      <Filter>Source Files\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Review Functions 8.cpp">
+      <Filter>Source Files\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Review Functions 9.cpp">
+      <Filter>Source Files\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Black Jack.cpp">
+      <Filter>Source Files\Project For Controlling Program Flow</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

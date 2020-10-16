@@ -4,20 +4,31 @@
 
 using namespace std;
 
+int TotalCards(int pulledCard, int Total) {
+
+	Total += pulledCard;
+
+	return Total;
+}
 
 int drawCard(int numCards) {
 
-	int pulledCard, score = 0, replay;
+	int pulledCard = 0, score = 0, replay;
 	const int minRand = 1, maxRand = 13;
 
 	for (int i = 0; i < numCards; i++) {
 		pulledCard = rand() % maxRand + minRand;
-		score += pulledCard;
+		//score += pulledCard;
+		;
 
 		cout << pulledCard << " ";
 	}
-	return score;
+	int Total = 0;
+
+	return TotalCards(pulledCard, Total);
 }
+
+
 
 int main() {
 
@@ -72,5 +83,4 @@ int main() {
 
 	return 0;
 }
-
 */

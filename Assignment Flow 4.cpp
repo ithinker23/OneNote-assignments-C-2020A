@@ -14,7 +14,6 @@ int main() {
 
 		sum += number % 10;
 		number = number / 10;
-
 	}
 
 	cout << "Sum of digits is: " << sum << endl;
