@@ -1,23 +1,100 @@
-/*#include <iostream>
+#include <iostream>
 #include <ctime>
 #include <string>
+#include <windows.h>
+#include <vector>
+
+//changes sleep milliseconds to seconds
+#define sleep(x) Sleep(1000 * (x))
 
 using namespace std;
 
 //global variables
-int playerTotal, CPUTotal, playerBalance, CPUBalance, bet, wins, losses, draws;
+int playerTotal, dealerTotal, playerBalance, bet, wins, losses, draws;
+vector<int> playerCards, dealerCards, allCards;
 
+//reset the deck
+void resetDeck() {
+	//reset deck
+	allCards = { 1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,9,9,9,9,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10 };
+	//allCards = { 3,3,3,3,3,3,5,5,5 };
+}
+
+//outputs statistics of current position in the game
+void outputStats(string who) {
+
+	if (who == "player") {
+		cout << "Player's Cards: ";
+
+		for (int card : playerCards) {
+			cout << card << ", ";
+		}
+
+		cout << "Your Total: " << playerTotal << endl;
+	}
+	else {
+		cout << "Dealer's Cards: ";
+
+		for (int card : dealerCards) {
+			cout << card << ", ";
+		}
+
+		cout << "Dealer's Total: " << dealerTotal << endl;
+	}
+}
+
+//Total specified players cards
+void totalCards(string who) {
+
+	if (who == "player") {
+		playerTotal = 0;
+		for (int card : playerCards) {
+			playerTotal += card;
+		}
+	}
+	else {
+		dealerTotal = 0;
+		for (int card : dealerCards) {
+			dealerTotal += card;
+		}
+	}
+}
+
+
+//draws random card from allCards[]
+int drawCard(){
+	if (allCards.size() > 0) {
+		//pick a random card from array
+		int cardIndex = rand() % allCards.size(), card = allCards[cardIndex];
+
+		//return and erase the card
+		allCards.erase(allCards.begin() + cardIndex);
+		return card;
+	}
+	else {
+		cout << "Deck has been emptied" << endl;
+		return 0;
+	}
+}
+
+//check if player's balance is zero
+bool checkBroke() {
+
+	//check if any balance is 0
+	if (playerBalance == 0) {
+		cout << "Player has no more money! stop gambling!" << endl;
+		return true;
+	}
+	return false;
+
+}
 //check balance of specified player
-bool checkBalance(string who) {
+bool checkFunds() {
 	
 	bool hasEnough;
 
 	//determine who is getting checked
-	int balance;
-	if (who == "player")
-		balance = playerBalance;
-	else
-		balance = CPUBalance;
+	int balance = playerBalance;
 
 	//check balance of specified player
 	if (balance >= bet) {
@@ -25,84 +102,175 @@ bool checkBalance(string who) {
 	}
 	else {
 		hasEnough = false;
-		cout << who + " doesnt have enough funds to perform bet" << endl;
+		cout << "Player doesnt have enough funds to perform bet" << endl;
 	}
 
 	return hasEnough;
 }
 
-//checks for Aces then asks to change or not
-void checkForAce(int &card, string who){
-	
-	char answer;
-
+//found ace and asks to change to 1 or 11
+void hasAce(int card, int cardIndex) {
 	if (card == 1) {
+		char answer;
+		cout << "Do you want to change ace to 11 (Y/N): ";
+		cin >> answer;
 
-		if (who == "player") {
-			cout << "Do you want to change ace to 11? Y/N: ";
-			cin >> answer;
-		}
-		else {
-			if (rand() % 2 + 1 == 1)
-				answer = 'Y';
-			else
-				answer = 'N';
-		}
+		if (answer == 'Y' || answer == 'y') {
 
-		if (answer == 'Y' || answer == 'y')
-			card = 11;
-		else
-			card = 1;
+			playerCards.erase(playerCards.begin() + cardIndex);
+			playerCards.resize(playerCards.size() + 1);
+			playerCards[playerCards.size() - 1] = 11;
+
+		}
+	}
+	else {
+		char answer;
+		cout << "Do you want to change ace back to 1 (Y/N): ";
+		cin >> answer;
+
+		if (answer == 'Y' || answer == 'y') {
+
+			playerCards.erase(playerCards.begin() + cardIndex);
+			playerCards.resize(playerCards.size() + 1);
+			playerCards[playerCards.size() - 1] = 1;
+
+		}
+	}
+
+	//re-total the cards of player
+	totalCards("player");
+
+	//output Player's stats
+	outputStats("player");
+}
+
+//checks for Aces then asks to change or not
+void checkForAce(string who) {
+	if (who == "player") {
+		int cardIndex = 0;
+		for (int card : playerCards) {
+			if (card == 1 || card == 11) {
+				hasAce(card, cardIndex);
+				break;
+			}
+			cardIndex++;
+		}
+	}
+}
+
+//add card to specified players array of cards
+void addToCards(int card, string who) {
+	if (who == "player") {
+		playerCards.resize(playerCards.size() + 1);
+		playerCards[playerCards.size() - 1] = card;
+	}
+	else {
+		dealerCards.resize(dealerCards.size() + 1);
+		dealerCards[dealerCards.size() - 1] = card;
 	}
 
 }
 
-//outputs statistics of current position in the game
-void outputStats(string who) {
+//loading animation
+void loadingAnim(int time) {
 
-	if (who == "player")
-		cout << "Your Total: " << playerTotal << endl;
-	else
-		cout << "CPU Total: " << CPUTotal << endl;
+	//clear console
+	system("CLS");
+
+	//drawing anim
+	int animState = 0;
+
+	for (int x = 0; x < time; x++) {
+
+		if (animState == 0) {
+			cout << "/ DRAWING CARD /";
+			animState = 1;
+			Sleep(100);
+			system("CLS");
+		}
+		else if (animState == 1) {
+			cout << "- DRAWING CARD -";
+			animState = 2;
+			Sleep(100);
+			system("CLS");
+		}
+		else if (animState == 2) {
+			cout << "\\ DRAWING CARD \\";
+			animState = 3;
+			Sleep(100);
+			system("CLS");
+		}
+		else if (animState == 3) {
+			cout << "| DRAWING CARD |";
+			animState = 0;
+			Sleep(100);
+			system("CLS");
+		}
+
+	}
+
+	//clear console
+	system("CLS");
+
 }
 
 //outputs cards and gives total of cards
-void giveCards(int amount, int &total, string who) {
+int giveCards(int amount, int &total, string who) {
 
 	const int minRand = 1, maxRand = 10;
 	int card;
 
-		cout << who + "'s Draw: ";
-
 		for (int x = 0; x < amount; x++) {
-			card = rand() % maxRand + minRand;
-			checkForAce(card, who);
-			total += card;
-			cout << card << ", ";
+
+			//play loading animation
+			loadingAnim(10);
+
+			//draw random card from 1 - 10
+			card = drawCard();
+
+			//add card to array
+			addToCards(card, who);
+
+			//re-total the cards
+			totalCards(who);
+
+			//output Player's stats
+			outputStats(who);
+
+			//check for ace
+			checkForAce(who);
+
+			//wait a bit before starting loading anim
+			Sleep(1500);
+
 		}
-
-		//output Player's stats
-		outputStats(who);
-
-		cout << endl;
+		return card;
 }
 
 //removes bet amount from balance
-void betMoney(int bet, string who) {
-		if (who == "player")
-			playerBalance -= bet;
-		else
-			CPUBalance -= bet;
+void betMoney() {
+
+	do {
+
+		//enter bet amount
+		cout << "Enter Bet Amount: ";
+		cin >> bet;
+
+	} while (checkFunds() == false || bet <= 0);
+
+	//remove bet from player balance
+	playerBalance -= bet;
+
 }
 
 //sets inital balance
 void setBalance(int amount) {
 
 	//initialize balances
-	cout << "Enter Starting Amount: ";
-	cin >> playerBalance;
-
-	CPUBalance = playerBalance;
+	do {
+		cout << "Enter Starting Amount: ";
+		cin >> playerBalance;
+	} while (playerBalance <= 0);
 
 }
 
@@ -110,72 +278,148 @@ void setBalance(int amount) {
 void checkWin() {
 
 	//check for draw
-	if (playerTotal == CPUTotal || (playerTotal > 21 && CPUTotal > 21)) {
+	if (playerTotal == dealerTotal || (playerTotal > 21 && dealerTotal > 21)) {
 		playerBalance += bet;
-			draws++;
+		draws++;
+
+		cout << "Player and Dealer Tie!" << endl;
+	}
+	//check for Player bust
+	else if (playerTotal > 21) {
+		losses++;
+
+		cout << "Player Bust, Dealer wins!" << endl;
 	}
 
-	//if not a draw check for win or loss
-	else {
+	//check if Player got 21
+	else if (playerTotal == 21) {
+		playerBalance += 2 * bet;
+		wins++;
 
-		//check if any player surpasses 21
-		if (playerTotal > 21) {
-			CPUBalance += 2 * bet;
-			losses++;
-
-		}
-		else if (CPUTotal > 21) {
-			playerBalance += 2 * bet;
-			wins++;
-
-		}
-
-		//check if any player equal 21
-		else if (playerTotal == 21) {
-			playerBalance += 2 * bet;
-			wins++;
-		}
-		else if (CPUTotal == 21) {
-			CPUBalance += 2 * bet;
-			losses++;
-
-		}
-
-		//check if player surpasses opponent
-		else if (playerTotal > CPUTotal) {
-			playerBalance += 2 * bet;
-			wins++;
-
-		}
-		else {
-			CPUBalance += 2 * bet;
-			losses++;
-
-		}
+		cout << "Player hit 21, Player wins!" << endl;
 	}
-	cout << "Player's Balance: " << playerBalance << ", CPU's Balance: " << CPUBalance << endl;
-	cout << "Wins: " << wins << ", Draws: " << draws << ", Losses: " << losses << endl;
+
+	//check for Dealer bust
+	else if (dealerTotal > 21) {
+		playerBalance += 2 * bet;
+		wins++;
+
+		cout << "Dealer busts, Player wins!" << endl;
+	}
+
+	//check whos total is higher
+	else if(playerTotal > dealerTotal){
+			playerBalance += 2 * bet;
+			wins++;
+		
+			cout << "Player's count is higher, Player wins!" << endl;
+	}
+	else
+	{
+			losses++;
+
+			cout << "Dealer's count is higher, Dealer wins!" << endl;
+	}
+
+	//output balances and w/d/l ratio
+	cout << endl;
+	cout << "Player's Balance: " << playerBalance << endl;
+	cout << "Wins: " << wins << ", Draws: " << draws << ", Losses: " << losses << endl << endl;
 }
 
 //initialize Game
 void startGame() {
+
 	//seed random generator
 	srand(time(NULL));
 
-	CPUTotal = playerTotal = 0;
+	//set card arrays to zero
+	playerCards = dealerCards = {};
 
-	do {
-	//enter bet amount
-	cout << "Enter Bet Amount: ";
-	cin >> bet;
-
-	} while (checkBalance("player") == false || checkBalance("CPU") == false);
-	
 	//input bet amount for player
-	betMoney(bet, "player");
+	betMoney();
 
-	//input bet amount for CPU
-	betMoney(bet, "CPU");
+	//reset deck
+	resetDeck();
+
+	//give cards to player
+	giveCards(1, playerTotal, "player");
+
+	giveCards(1, playerTotal, "player");
+}
+
+//initiates Dealer's Turn
+void dealerTurn() {
+
+	//Dealer TURN
+	if (playerTotal < 21) {
+		do {
+			if (giveCards(1, dealerTotal, "dealer") == 0)
+				break;
+
+		} while (dealerTotal <= 16);
+	outputStats("player");
+	}
+	cout << endl;
+}
+
+//inititates players turn
+void playerTurn() {
+	do {
+		char giveCard;
+
+		cout << "Do you want another card? Y/N: ";
+		cin >> giveCard;
+
+		//check if player wants another card
+		if (giveCard == 'N' || giveCard == 'n') {
+			cout << endl;
+			break;
+		}
+
+		//give card to player and add to total
+		if (giveCards(1, playerTotal, "player") == 0)
+			break;
+
+	} while (playerTotal < 21);
+}
+
+//perform split
+void split() {
+	if (playerCards[0] == playerCards[1]) {
+
+		char answer;
+		cout << "do you want to split? Y/N: ";
+		cin >> answer;
+
+		if (answer == 'Y' || answer == 'y') {
+
+			//store a card
+			int sameCard = playerCards[0];
+
+			//PLAYERS TURN
+			playerTurn();
+
+			//DEALERS TURN
+			dealerTurn();
+
+			//Check who won the round
+			checkWin();
+
+			//reset to deck 2
+			playerCards = { sameCard };
+
+			//reset dealer's deck
+			dealerCards = {};
+
+			//input bet amount for player
+			betMoney();
+
+			//reset the deck
+			resetDeck();
+
+		}
+	}
 }
 
 //play the game
@@ -184,67 +428,26 @@ void play() {
 	char playAgain;
 
 	do {
-		//ask for starting info
+		//reset and initialize game
 		startGame();
 
+		//check and perform split
+		split();
 
 		//PLAYERS TURN
+		playerTurn();
 
-		//give cards to player
-		giveCards(2, playerTotal, "player");
+		//DEALERS TURN
+		dealerTurn();
 
-		do {
-			char giveCard;
-
-			cout << "Do you want another card? Y/N: ";
-			cin >> giveCard;
-
-			//check if player wants another card
-			if (giveCard == 'N' || giveCard == 'n')
-				break;
-
-			//give card to player and add to total
-			giveCards(1, playerTotal, "player");
-
-		} while (playerTotal < 21);
-
-
-
-		//CPU TURN
-
-		//give cards to CPU
-		giveCards(2, CPUTotal, "CPU");
-
-		do {
-			//give random number
-			int giveCPUCard = rand() % 2 + 1;
-
-			//random chance to give a card to CPU
-			if (giveCPUCard == 1)
-				break;
-
-			giveCards(1, CPUTotal, "CPU");
-
-
-
-		} while (CPUTotal < 21);
-
+		//Check who won the round
 		checkWin();
+		
+		cout << "Do you want to play again? Y/N: ";
+		cin >> playAgain;
 
-		//check if any balance is 0
-		if (playerBalance == 0) {
-			cout << "Player has no more money! CPU Wins!" << endl;
-			break;
-		}
-		if (CPUBalance == 0) {
-			cout << "CPU has no more money! Player Wins!" << endl;
-			break;
-		}
+	} while ((playAgain == 'Y' || playAgain == 'y') && checkBroke() == false);
 
-	cout << "Do you want to play again? Y/N: ";
-	cin >> playAgain;
-
-	} while (playAgain == 'Y' || playAgain == 'y');
 }
 
 
@@ -258,4 +461,4 @@ int main() {
 
 	return 0;
 }
-*/
+

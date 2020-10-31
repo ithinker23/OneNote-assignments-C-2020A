@@ -31,6 +31,18 @@
     <Filter Include="Source Files\Functions">
       <UniqueIdentifier>{89485269-34df-4aaf-81de-cb4b6f5a9c98}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Objects">
+      <UniqueIdentifier>{86dfdbdc-3d74-4ecf-a773-bc1a44ea2032}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Arrays">
+      <UniqueIdentifier>{4cfea26f-49f2-420c-a257-2cedcfac56fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\PegClass">
+      <UniqueIdentifier>{b7c768f5-89d2-4d17-96e6-f1682179d679}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Functions\Review Recursive Functions 1">
+      <UniqueIdentifier>{413cc0e5-5b12-4778-8c23-e53dc2038b54}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="What is C++ .cpp">
@@ -200,6 +212,45 @@
     </ClCompile>
     <ClCompile Include="Black Jack.cpp">
       <Filter>Source Files\Project For Controlling Program Flow</Filter>
+    </ClCompile>
+    <ClCompile Include="PegClass.cpp">
+      <Filter>Source Files\Objects\PegClass</Filter>
+    </ClCompile>
+    <ClCompile Include="pegClassDemonstration.cpp">
+      <Filter>Source Files\Objects\PegClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Review Strings 1.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Review Recursive Functions 2.cpp">
+      <Filter>Source Files\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="SumMain.cpp">
+      <Filter>Source Files\Functions\Review Recursive Functions 1</Filter>
+    </ClCompile>
+    <ClCompile Include="SumClass.cpp">
+      <Filter>Source Files\Functions\Review Recursive Functions 1</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment Objects 1.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="TimerClass.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment Objects 2.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Review Objects 5.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Review Objects 6.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Review Array 5.cpp">
+      <Filter>Source Files\Arrays</Filter>
+    </ClCompile>
+    <ClCompile Include="qSort.cpp">
+      <Filter>Source Files\Arrays</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
