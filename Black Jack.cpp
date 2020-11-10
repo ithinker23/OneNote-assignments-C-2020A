@@ -12,12 +12,13 @@ using namespace std;
 //global variables
 int playerTotal, dealerTotal, playerBalance, bet, wins, losses, draws;
 vector<int> playerCards, dealerCards, allCards;
+bool changedAce;
 
 //reset the deck
 void resetDeck() {
 	//reset deck
-	allCards = { 1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,9,9,9,9,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10 };
-	//allCards = { 3,3,3,3,3,3,5,5,5 };
+    allCards = { 1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,9,9,9,9,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10 };
+
 }
 
 //outputs statistics of current position in the game
@@ -41,6 +42,49 @@ void outputStats(string who) {
 
 		cout << "Dealer's Total: " << dealerTotal << endl;
 	}
+}
+
+//loading animation
+void loadingAnim(int time, string message) {
+
+	//clear console
+	system("CLS");
+
+	//drawing anim
+	int animState = 0;
+
+	for (int x = 0; x < time; x++) {
+
+		if (animState == 0) {
+			cout << "/ " + message + " /";
+			animState = 1;
+			Sleep(100);
+			system("CLS");
+		}
+		else if (animState == 1) {
+			cout << "- " + message + " -";
+			animState = 2;
+			Sleep(100);
+			system("CLS");
+		}
+		else if (animState == 2) {
+			cout << "\\ " + message + " \\";
+			animState = 3;
+			Sleep(100);
+			system("CLS");
+		}
+		else if (animState == 3) {
+			cout << "| " + message + " |";
+			animState = 0;
+			Sleep(100);
+			system("CLS");
+		}
+
+	}
+
+	//clear console
+	system("CLS");
+
 }
 
 //Total specified players cards
@@ -73,6 +117,8 @@ int drawCard(){
 	}
 	else {
 		cout << "Deck has been emptied" << endl;
+		resetDeck();
+		return 0;
 		return 0;
 	}
 }
@@ -111,37 +157,64 @@ bool checkFunds() {
 //found ace and asks to change to 1 or 11
 void hasAce(int card, int cardIndex) {
 	if (card == 1) {
-		char answer;
-		cout << "Do you want to change ace to 11 (Y/N): ";
-		cin >> answer;
+		if (playerTotal <= 21) {
+			char answer;
+			cout << "Do you want to change ace to 11 (Y/N): ";
+			cin >> answer;
 
-		if (answer == 'Y' || answer == 'y') {
+			if (answer == 'Y' || answer == 'y') {
 
-			playerCards.erase(playerCards.begin() + cardIndex);
-			playerCards.resize(playerCards.size() + 1);
-			playerCards[playerCards.size() - 1] = 11;
+				if (playerTotal + 10 <= 21) {
+					changedAce = true;
+					playerCards.erase(playerCards.begin() + cardIndex);
+					playerCards.resize(playerCards.size() + 1);
+					playerCards[playerCards.size() - 1] = 11;
 
+					//re-total the cards of player
+					totalCards("player");
+
+					//output Player's stats
+					outputStats("player");
+
+					//wait a bit before starting loading anim
+					Sleep(1500);
+
+				}
+				else {
+					cout << "did not increase ace to 11 to avoid bust" << endl;
+
+				}
+			}
 		}
 	}
 	else {
 		char answer;
-		cout << "Do you want to change ace back to 1 (Y/N): ";
-		cin >> answer;
+
+		if (playerTotal <= 21) {
+			cout << "Do you want to change ace back to 1 (Y/N): ";
+			cin >> answer;
+		}else{
+			loadingAnim(10, "Shrinking Ace");
+			cout << "Ace has been changed back to 1 after bust" << endl;
+			answer = 'Y';
+		}
 
 		if (answer == 'Y' || answer == 'y') {
-
+			changedAce = false;
 			playerCards.erase(playerCards.begin() + cardIndex);
 			playerCards.resize(playerCards.size() + 1);
 			playerCards[playerCards.size() - 1] = 1;
 
+			//re-total the cards of player
+			totalCards("player");
+
+			//output Player's stats
+			outputStats("player");
+
+			//wait a bit before starting loading anim
+			Sleep(1500);
 		}
 	}
-
-	//re-total the cards of player
-	totalCards("player");
-
-	//output Player's stats
-	outputStats("player");
 }
 
 //checks for Aces then asks to change or not
@@ -149,7 +222,11 @@ void checkForAce(string who) {
 	if (who == "player") {
 		int cardIndex = 0;
 		for (int card : playerCards) {
-			if (card == 1 || card == 11) {
+			if (card == 1 && changedAce == false) {
+				hasAce(card, cardIndex);
+				break;
+			}
+			if (card == 11 && changedAce == true) {
 				hasAce(card, cardIndex);
 				break;
 			}
@@ -168,54 +245,10 @@ void addToCards(int card, string who) {
 		dealerCards.resize(dealerCards.size() + 1);
 		dealerCards[dealerCards.size() - 1] = card;
 	}
-
-}
-
-//loading animation
-void loadingAnim(int time) {
-
-	//clear console
-	system("CLS");
-
-	//drawing anim
-	int animState = 0;
-
-	for (int x = 0; x < time; x++) {
-
-		if (animState == 0) {
-			cout << "/ DRAWING CARD /";
-			animState = 1;
-			Sleep(100);
-			system("CLS");
-		}
-		else if (animState == 1) {
-			cout << "- DRAWING CARD -";
-			animState = 2;
-			Sleep(100);
-			system("CLS");
-		}
-		else if (animState == 2) {
-			cout << "\\ DRAWING CARD \\";
-			animState = 3;
-			Sleep(100);
-			system("CLS");
-		}
-		else if (animState == 3) {
-			cout << "| DRAWING CARD |";
-			animState = 0;
-			Sleep(100);
-			system("CLS");
-		}
-
-	}
-
-	//clear console
-	system("CLS");
-
 }
 
 //outputs cards and gives total of cards
-int giveCards(int amount, int &total, string who) {
+void giveCards(int amount, int &total, string who) {
 
 	const int minRand = 1, maxRand = 10;
 	int card;
@@ -223,7 +256,7 @@ int giveCards(int amount, int &total, string who) {
 		for (int x = 0; x < amount; x++) {
 
 			//play loading animation
-			loadingAnim(10);
+			loadingAnim(10, "Drawing card");
 
 			//draw random card from 1 - 10
 			card = drawCard();
@@ -234,17 +267,7 @@ int giveCards(int amount, int &total, string who) {
 			//re-total the cards
 			totalCards(who);
 
-			//output Player's stats
-			outputStats(who);
-
-			//check for ace
-			checkForAce(who);
-
-			//wait a bit before starting loading anim
-			Sleep(1500);
-
 		}
-		return card;
 }
 
 //removes bet amount from balance
@@ -327,6 +350,26 @@ void checkWin() {
 	cout << "Wins: " << wins << ", Draws: " << draws << ", Losses: " << losses << endl << endl;
 }
 
+//initalize player's deck
+void initPlayerDeck() {
+
+	//give cards to player
+	giveCards(1, playerTotal, "player");
+
+	//output cards
+	outputStats("player");
+
+	//wait a bit before starting loading anim
+	Sleep(1500);
+
+	//give second card to player 
+	giveCards(1, playerTotal, "player");
+
+	//output cards
+	outputStats("player");
+
+}
+
 //initialize Game
 void startGame() {
 
@@ -342,10 +385,11 @@ void startGame() {
 	//reset deck
 	resetDeck();
 
-	//give cards to player
-	giveCards(1, playerTotal, "player");
+	//give inital cards
+	initPlayerDeck();
 
-	giveCards(1, playerTotal, "player");
+	//reset Ace bool
+	changedAce = false;
 }
 
 //initiates Dealer's Turn
@@ -354,11 +398,18 @@ void dealerTurn() {
 	//Dealer TURN
 	if (playerTotal < 21) {
 		do {
-			if (giveCards(1, dealerTotal, "dealer") == 0)
-				break;
+			giveCards(1, dealerTotal, "dealer");
+
+			//output Player's stats
+			outputStats("dealer");
+
+			//wait a bit before starting loading anim
+			Sleep(1500);
 
 		} while (dealerTotal <= 16);
-	outputStats("player");
+
+		outputStats("player");
+
 	}
 	cout << endl;
 }
@@ -378,8 +429,16 @@ void playerTurn() {
 		}
 
 		//give card to player and add to total
-		if (giveCards(1, playerTotal, "player") == 0)
-			break;
+		giveCards(1, playerTotal, "player");
+
+		//output Player's stats
+		outputStats("player");
+
+		//wait a bit before starting loading anim
+		Sleep(1500);
+
+		//check for ace
+		checkForAce("player");
 
 	} while (playerTotal < 21);
 }
@@ -396,6 +455,12 @@ void split() {
 
 			//store a card
 			int sameCard = playerCards[0];
+
+			//reset to deck 2
+			playerCards = { sameCard };
+
+			//check ace for inital cards
+			checkForAce("player");
 
 			//PLAYERS TURN
 			playerTurn();
@@ -419,6 +484,9 @@ void split() {
 			resetDeck();
 
 		}
+		else {
+			checkForAce("player");
+		}
 	}
 }
 
@@ -433,6 +501,9 @@ void play() {
 
 		//check and perform split
 		split();
+
+		//check ace for inital cards
+		checkForAce("player");
 
 		//PLAYERS TURN
 		playerTurn();
@@ -461,4 +532,3 @@ int main() {
 
 	return 0;
 }
-
