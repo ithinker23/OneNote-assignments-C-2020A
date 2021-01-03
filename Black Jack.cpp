@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include <ctime>
 #include <string>
 #include <windows.h>
@@ -118,7 +118,6 @@ int drawCard(){
 	else {
 		cout << "Deck has been emptied" << endl;
 		resetDeck();
-		return 0;
 		return 0;
 	}
 }
@@ -532,3 +531,4 @@ int main() {
 
 	return 0;
 }
+*/

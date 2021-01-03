@@ -1,4 +1,4 @@
-/*#include <iostream>
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -46,4 +46,4 @@ int main() {
 	cout << endl;
 	return 0;
 }
-*/
+
